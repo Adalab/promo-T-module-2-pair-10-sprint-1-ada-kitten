@@ -1,6 +1,11 @@
 'use strict';
 
 document.querySelector(".js-list");
+const kittenImage = 'https://dev.adalab.es/gato-siames.webp';
+const kittenName = 'Anastacio';
+const kittenDesc =
+  ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.';
+const kittenRace = 'Siamés';
 
 const kittenOne = `<li class="card">
 <article>
@@ -9,7 +14,7 @@ const kittenOne = `<li class="card">
     src="https://dev.adalab.es/gato-siames.webp"
     alt="gatito"
   />
-  <h3 class="card_title">Anastacio</h3>
+  <h3 class="card_title">${kittenName.toUpperCase()}</h3>
   <h4 class="card_race">Siamés</h4>
   <p class="card_description">
             Porte elegante, su patrón de color tan característico y sus ojos
@@ -23,9 +28,8 @@ const kittenTwo = `<li class="card">
 <img
   class="card_img"
   src="https://dev.adalab.es/sphynx-gato.webp"
-  alt="sphynx-cat"
-/>
-<h3 class="card_title">Fiona</h3>
+  alt="sphynx-cat"/>
+<h3 class="card_title">${kittenName.toUpperCase()}</h3>
 <h4 class="card_race">Sphynx</h4>
 <p class="card_description">
   Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
@@ -40,7 +44,7 @@ const kittenThree = `<li class="card">
   src="https://dev.adalab.es/maine-coon-cat.webp"
   alt="maine-coon-cat"
 />
-<h3 class="card_title">Cielo</h3>
+<h3 class="card_title">${kittenName.toUpperCase()}</h3>
 <h4 class="card_race">Maine Coon</h4>
 <p class="card_description">
   Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
@@ -51,3 +55,4 @@ const kittenThree = `<li class="card">
 
 const catList = document.querySelector('.js-list');
 catList.innerHTML = kittenOne+kittenTwo+kittenThree;
+
