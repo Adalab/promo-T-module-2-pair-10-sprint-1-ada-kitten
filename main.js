@@ -74,3 +74,32 @@ if (catDesc1.includes(descrSearchText)) {
 } else {
   catList.innerHTML = "";
 }
+
+
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+/*const labelMessageError = document.querySelector('.js-label-error');*/
+
+
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
+const error = '¡Uy! parece que has olvidado algo';
+
+const jserror = document.querySelector(".js__error");
+  
+
+const btnadd =document.querySelector(".js-btn-add")
+btnadd.addEventListener('click', (event) => {
+
+if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+
+jserror.innerHTML= error;
+} 
+else {
+  
+ jserror.innerHTML= "";
+}
+
+});
