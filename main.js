@@ -92,7 +92,7 @@ const jserror = document.querySelector(".js__error");
 
 const btnadd =document.querySelector(".js-btn-add")
 btnadd.addEventListener('click', (event) => {
-
+event.preventDefault();
 if (valueDesc === '' || valuePhoto === '' || valueName === '') {
 
 jserror.innerHTML= error;
