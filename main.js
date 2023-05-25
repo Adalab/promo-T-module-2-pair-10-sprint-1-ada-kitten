@@ -61,20 +61,7 @@ const kittenThree = `<li class="card">
 
 const catList = document.querySelector(".js-list");
 
-/*catList.innerHTML = kittenOne + kittenTwo + kittenThree;*/
-
-const input_search_desc = document.querySelector(".js_in_search_desc");
-const descrSearchText = input_search_desc.value;
-
-if (catDesc1.includes(descrSearchText)) {
-  catList.innerHTML = kittenOne;
-} else if (catDesc2.includes(descrSearchText)) {
-  catList.innerHTML = kittenTwo;
-} else if (catDesc3.includes(descrSearchText)) {
-  catList.innerHTML = kittenThree;
-} else {
-  catList.innerHTML = "";
-}
+catList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
 /*let html = '';
 if (kittenRace1 === "")) {
@@ -124,3 +111,36 @@ function handleClickNewCatForm(event) {
     newform.classList.add("collapsed");
   }
 }
+
+const input_search_descr = document.querySelector('.js_in_search_desc');
+const input_search_race = document.querySelector('.js_in_search_race');
+
+
+const filterKitten = (event) => {
+  event.preventDefault();
+  const descSearchText = input_search_descr.value;
+  const raceSearchText = input_search_race.value;
+  catList.innerHTML='';
+  if (catDesc1.includes(descSearchText)) {
+    catList.innerHTML += kittenOne;
+  }
+  if (catDesc2.includes(descSearchText)) {
+    catList.innerHTML += kittenTwo;
+  }
+  if (catDesc3.includes(descSearchText)) {
+    catList.innerHTML += kittenThree;
+  }
+  if (catRace1.includes(raceSearchText)) {
+    catList.innerHTML += kittenOne;
+  }
+  if (catRace2.includes(raceSearchText)) {
+    catList.innerHTML += kittenTwo;
+  }
+  if (catRace3.includes(raceSearchText)) {
+    catList.innerHTML += kittenThree;
+  }
+}
+
+const buttonSearch = document.querySelector('.js-button-search');
+buttonSearch.addEventListener('click', filterKitten);
+
