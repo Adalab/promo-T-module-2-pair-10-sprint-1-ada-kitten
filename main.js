@@ -75,6 +75,12 @@ if (catDesc1.includes(descrSearchText)) {
   catList.innerHTML = "";
 }
 
+/*let html = '';
+if (kittenRace1 === "")) {
+  html = `Uy que despiste, no sabemos su raza`;
+} else {
+  html = race;
+}*/
 
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
