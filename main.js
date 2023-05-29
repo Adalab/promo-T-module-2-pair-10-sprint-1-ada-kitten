@@ -1,34 +1,37 @@
 "use strict";
 
-const catName1 = "anastacio";
-const catRace1 = "Siamés";
-const catDesc1 =
-  "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
-const catImg1 = "https://dev.adalab.es/gato-siames.webp";
+const cat1 = {
+  name: "anastacio",
+  race: "Siamés",
+  desc: "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.",
+  img: "https://dev.adalab.es/gato-siames.webp",
+};
 
-const catName2 = "fiona";
-const catRace2 = "Sphynx";
-const catDesc2 =
-  "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
-const catImg2 = "https://dev.adalab.es/sphynx-gato.webp";
+const cat2 = {
+  name: "fiona",
+  race: "Sphynx",
+  desc: "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.",
+  img: "https://dev.adalab.es/sphynx-gato.webp",
+};
 
-const catName3 = "cielo";
-const catRace3 = "Maine Coon";
-const catDesc3 =
-  "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
-const catImg3 = "https://dev.adalab.es/maine-coon-cat.webp";
+const cat3 = {
+  name: "cielo",
+  race: "Maine Coon",
+  desc: "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.",
+  img: "https://dev.adalab.es/maine-coon-cat.webp",
+};
 
 const kittenOne = `<li class="card">
             <article>
               <img
                 class="card_img"
-                src= ${catImg1}
+                src= ${cat1.img}
                 alt="gatito"
               />
-              <h3 class="card_title">${catName1.toUpperCase()}</h3>
-              <h4 class="card_race">${catRace1}</h4>
+              <h3 class="card_title">${cat1.name.toUpperCase()}</h3>
+              <h4 class="card_race">${cat1.race}</h4>
               <p class="card_description">
-                ${catDesc1}
+                ${cat1.desc}
               </p>
             </article>
           </li>`;
@@ -36,26 +39,26 @@ const kittenOne = `<li class="card">
 const kittenTwo = `<li class="card">
             <img
               class="card_img"
-              src=${catImg2}
+              src=${cat2.img}
               alt="sphynx-cat"
             />
-            <h3 class="card_title">${catName2.toUpperCase()}</h3>
-            <h4 class="card_race">${catRace2}</h4>
+            <h3 class="card_title">${cat2.name.toUpperCase()}</h3>
+            <h4 class="card_race">${cat2.race}</h4>
             <p class="card_description">
-              ${catDesc2}
+              ${cat2.desc}
             </p>
           </li>`;
 
 const kittenThree = `<li class="card">
             <img
               class="card_img"
-              src=${catImg3}
+              src=${cat3.img}
               alt="maine-coon-cat"
             />
-            <h3 class="card_title">${catName3.toUpperCase()}</h3>
-            <h4 class="card_race">${catRace3}</h4>
+            <h3 class="card_title">${cat3.name.toUpperCase()}</h3>
+            <h4 class="card_race">${cat3.race}</h4>
             <p class="card_description">
-              ${catDesc3}
+              ${cat3.desc}
             </p>
           </li>`;
 
@@ -69,10 +72,10 @@ if (kittenRace1 === "")) {
 } else {
   html = race;
 }*/
+
 const inputDesc = document.querySelector(".js-input-desc");
 const inputPhoto = document.querySelector(".js-input-photo");
 const inputName = document.querySelector(".js-input-name");
-/*const labelMessageError = document.querySelector('.js-label-error');*/
 
 const valueDesc = inputDesc.value;
 const valuePhoto = inputPhoto.value;
@@ -112,35 +115,38 @@ function handleClickNewCatForm(event) {
   }
 }
 
-const input_search_descr = document.querySelector('.js_in_search_desc');
-const input_search_race = document.querySelector('.js_in_search_race');
+const input_search_descr = document.querySelector(".js_in_search_desc");
+const input_search_race = document.querySelector(".js_in_search_race");
 
-
-const filterKitten = (event) => {
+const filterKittenDesc = (event) => {
   event.preventDefault();
   const descSearchText = input_search_descr.value;
+  catList.innerHTML = "";
+  if (cat1.desc.includes(descSearchText)) {
+    catList.innerHTML = kittenOne;
+  }
+  if (cat2.desc.includes(descSearchText)) {
+    catList.innerHTML = kittenTwo;
+  }
+  if (cat3.desc.includes(descSearchText)) {
+    catList.innerHTML = kittenThree;
+  }
+};
+
+const filterKittenRace = (event) => {
+  event.preventDefault();
   const raceSearchText = input_search_race.value;
-  catList.innerHTML='';
-  if (catDesc1.includes(descSearchText)) {
-    catList.innerHTML += kittenOne;
+  if (cat1.race.includes(raceSearchText)) {
+    catList.innerHTML = kittenOne;
   }
-  if (catDesc2.includes(descSearchText)) {
-    catList.innerHTML += kittenTwo;
+  if (cat2.race.includes(raceSearchText)) {
+    catList.innerHTML = kittenTwo;
   }
-  if (catDesc3.includes(descSearchText)) {
-    catList.innerHTML += kittenThree;
+  if (cat3.race.includes(raceSearchText)) {
+    catList.innerHTML = kittenThree;
   }
-  if (catRace1.includes(raceSearchText)) {
-    catList.innerHTML += kittenOne;
-  }
-  if (catRace2.includes(raceSearchText)) {
-    catList.innerHTML += kittenTwo;
-  }
-  if (catRace3.includes(raceSearchText)) {
-    catList.innerHTML += kittenThree;
-  }
-}
+};
 
-const buttonSearch = document.querySelector('.js-button-search');
-buttonSearch.addEventListener('click', filterKitten);
-
+const buttonSearch = document.querySelector(".js-button-search");
+buttonSearch.addEventListener("click", filterKittenDesc);
+buttonSearch.addEventListener("click", filterKittenRace);
