@@ -20,7 +20,7 @@ const cat3 = {
   desc: "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.",
   img: "https://dev.adalab.es/maine-coon-cat.webp",
 };
-
+const kittenDataList = [cat1, cat2, cat3];
 const kittenOne = `<li class="card">
             <article>
               <img
